@@ -51,6 +51,27 @@
   <%= h.text_area :message %>
   <br>
 
+  
+  <%= h.label :department, "Write Sales, Technical or Marketing" %>
+  <%= h.text_field :department %>
+  <br>
+
+  <%= h.submit "Save", class: "btn btn-primary" %>
+
+
+<% end %>
+
+
+
+
+
+  <a href="/list">Check out support tickets!</a>
+
+<hr>
+
+<h1>Shit that doesn't work....</h1>
+
+
   <label for="department">Department</label>
   <input type="radio" name=":department" value="sales" checked/> Sales
   <input type="radio" name=":department" value="marketing" /> Marketing
@@ -66,38 +87,5 @@
 <%= radio_button_tag(:department, "technical") %>
 <%= label_tag(:department, "techinical") %>
 
-
-
-
-  <%= h.submit "Save", class: "btn btn-primary" %>
-
-
-<% end %>
-
-<%= form_for Home.new do |f| %>     
- <td id="sales"><%= f.radio_button :department, "sales", :checked => Home.department %></br>
-    <%= f.label :department, "sales" %>
-
- </td>
- <td id="delete"> <%= f.radio_button :keep, "Delete" %></br>
-    <%= f.label :keep, "Delete" %>
- </td>
- <td id="checked"><%= f.check_box :checked %></br>
-    <%= f.label :checked, "checked" %>
- </td>
- <td id="collected"><%= f.check_box :collected %></br>
-    <%= f.label :collected, "collected" %>
- </td>
- <td id="digitized"><%= f.check_box digitized %></br>
-    <%= f.label :digitized, "digitized" %>
- </td>
- <td id="in_db"><%= f.check_box :in_database  %></br>
-    <%= f.label :database, "database" %>
-
-  <% end %>
-
-
-
-  <a href="/list">Check out support tickets!</a>
 
 

@@ -18,6 +18,14 @@ class HomesController < ApplicationController
     end
   end
 
+  def delete
+   if @home.destroy
+        redirect_to list_path, notice: "Question deleted successfully"
+    else
+      redirect_to error_path
+    end
+  end
+
   def new
     @home = Home.new
   end
