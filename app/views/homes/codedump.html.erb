@@ -1,0 +1,23 @@
+<%= link_to "Create New Support Ticket", new_home_path %>
+
+<% @homes.each do |home| %>
+
+  <h2> <%= link_to home.name, home_path(home) %> </h2>
+  <p><%= home.message %> </p>
+
+  <p> Created On: <%= formatted_date(home.created_at) %>
+
+<!--  Formmatted_date REPLACED:  <%= question.created_at.strftime("%Y-%b-%d") %></p> -->
+
+
+<hr>
+
+
+<% end %>
+
+
+<%= h.form_group :department, label: "department" text: "department" do %>
+  <%= h.radio_button :department, "Sales", label: "sales", checked: true %>
+  <%= h.radio_button :department, "marketing", label: "marketing" %>
+  <%= h.radio_button :department, "technical", label: "technical" %>
+  <% end %>

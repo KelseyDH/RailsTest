@@ -1,0 +1,109 @@
+<h1> list of all support requests</h1>
+
+
+  <% Home.all.each do |home| %>
+
+  <h2> <%= link_to home.name, home_path(home) %> </h2>
+  <p><%= home.message %> </p>
+
+  <p> Created On: <%= home.created_at.strftime("%Y-%b-%d") %></p> 
+
+  <p> Department: <%= home.department %></p> 
+
+
+<hr>
+
+
+<% end %>
+
+
+
+</table> -->
+
+<!-- Lists Only Technical Registrations -->
+<h2>Technical</h2>
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>Department</th>
+      <th>Message</th>
+      <th> </th>
+      <th> </th>
+
+    </tr>
+    <% Home.all.each do |home| %>
+      <% if home.department == "technical" %>
+      <tr>
+          <td><%= home.name %></td>
+          <td><%= home.email %></td>
+          <td><%= home.department %></td>
+          <td><%= home.message %></td>
+          <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
+          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+      </tr>
+      <% else " " %>
+      <% end %>
+    <% end %>
+</table>
+
+<!-- Lists Only Marketing Registrations -->
+
+<h2>Marketing</h2>
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>Department</th>
+      <th>Message</th>
+      <th> </th>
+      <th> </th>
+
+    </tr>
+
+
+    <% Home.all.each do |home| %>
+      <% if home.department == "marketing" %>
+      <tr>
+          <td><%= home.name %></td>
+          <td><%= home.email %></td>
+          <td><%= home.department %></td>
+          <td><%= home.message %></td>
+          <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
+          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+      </tr>
+      <% else " " %>
+      <% end %>
+    <% end %>
+</table>
+
+<!-- Lists Only Sales Registrations -->
+
+<h2>Sales</h2>
+<table class="table table-striped">
+    <tr>
+      <th>Name</th>
+      <th>email</th>
+      <th>Department</th>
+      <th>Message</th>
+      <th> </th>
+      <th> </th>
+
+
+    </tr>
+
+
+    <% Home.all.each do |home| %>
+      <% if home.department == "sales" %>
+      <tr>
+          <td><%= home.name %></td>
+          <td><%= home.email %></td>
+          <td><%= home.department %></td>
+          <td><%= home.message %></td>
+          <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
+          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+      </tr>
+      <% else " " %>
+      <% end %>
+    <% end %>
+</table>

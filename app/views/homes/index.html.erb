@@ -1,0 +1,103 @@
+<!-- <div class="row">
+<div class="col-md-8">
+<form method="post" action="/new">
+
+
+     
+
+    <h4>Please fill out the information below to receive assistance</h4>
+  <br>
+  <div class="row">
+     <div class="col-md-1"> <label for="name">Name</label>  </div>
+     <div class="col-md-11"><input type="text" id="name" name="name" placeholder="e.g. Bozo the Clown"/>  </div>
+  </div>
+  <br>
+  <br>
+  <div>
+  <label for="email">Email</label>
+  <input type="text" id="email" name="email" placeholder="e.g. bozo@clown.com" />
+  <br>
+  <br>
+  <label for="department">Department</label>
+  <input type="radio" name="department" value="sales" checked/> Sales
+  <input type="radio" name="department" value="marketing" /> Marketing
+  <input type="radio" name="department" value="technical" /> Technical
+  <br>
+  <br>
+  <label for="message">Message</label>
+  <textarea cols="50" rows="4" name="message"> </textarea>
+  <br>
+  <input type="submit" value="Save" />
+  </form>
+  </div>
+
+   -->
+
+
+<%= form_for Home.new do |h| %>
+
+  <%= h.label :name, "name" %>
+  <%= h.text_field :name %>
+<br>
+  
+  <%= h.label :email, "email" %>
+  <%= h.text_field :email %>
+
+
+
+  <br>
+  
+  <%= h.label :message, "support message" %>
+  <%= h.text_area :message %>
+  <br>
+
+  <label for="department">Department</label>
+  <input type="radio" name=":department" value="sales" checked/> Sales
+  <input type="radio" name=":department" value="marketing" /> Marketing
+  <input type="radio" name=":department" value="technical" /> Technical
+  <br>
+
+<%= radio_button_tag(:department, :sales) %>
+<%= label_tag(:department, :sales) %>
+
+<%= radio_button_tag(:department, "marketing") %>
+<%= label_tag(:department, "marketing") %>
+
+<%= radio_button_tag(:department, "technical") %>
+<%= label_tag(:department, "techinical") %>
+
+
+
+
+  <%= h.submit "Save", class: "btn btn-primary" %>
+
+
+<% end %>
+
+<%= form_for Home.new do |f| %>     
+ <td id="sales"><%= f.radio_button :department, "sales", :checked => Home.department %></br>
+    <%= f.label :department, "sales" %>
+
+ </td>
+ <td id="delete"> <%= f.radio_button :keep, "Delete" %></br>
+    <%= f.label :keep, "Delete" %>
+ </td>
+ <td id="checked"><%= f.check_box :checked %></br>
+    <%= f.label :checked, "checked" %>
+ </td>
+ <td id="collected"><%= f.check_box :collected %></br>
+    <%= f.label :collected, "collected" %>
+ </td>
+ <td id="digitized"><%= f.check_box digitized %></br>
+    <%= f.label :digitized, "digitized" %>
+ </td>
+ <td id="in_db"><%= f.check_box :in_database  %></br>
+    <%= f.label :database, "database" %>
+
+  <% end %>
+
+
+
+  <a href="/list">Check out support tickets!</a>
+
+

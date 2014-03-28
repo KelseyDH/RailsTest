@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Week2RailsTest</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- <img src="http://www.processexcellencenetwork.com/lean-six-sigma-business-transformation/columns/i-can-t-believe-you-want-me-to-use-that/images/article_images/small/FrustratedManComputer.jpg"></img> -->
+<img src="http://lonelybrand.com/blog/wp-content/uploads/2014/02/frustrated-banner.png" float-right></img>
+  <h5> <%= link_to root_path %> </h5>
+
+   <hr>
+    <h3>Customer Success Department</h3>
+
+<br>
+
+
+
+<%= yield %>
+
+</body>
+</html>
