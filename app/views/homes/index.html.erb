@@ -52,9 +52,19 @@
   <br>
 
   
-  <%= h.label :department, "Write Sales, Technical or Marketing" %>
-  <%= h.text_field :department %>
+
   <br>
+
+<%= h.radio_button :department, "sales" %>
+<%= h.label :department, "sales" %>
+
+<%= h.radio_button :department, "marketing" %>
+<%= h.label :department, "marketing" %>
+
+<%= h.radio_button :department, "technical" %>
+<%= h.label :department, "technical" %>
+
+
 
   <%= h.submit "Save", class: "btn btn-primary" %>
 
@@ -68,24 +78,6 @@
   <a href="/list">Check out support tickets!</a>
 
 <hr>
-
-<h1>Shit that doesn't work....</h1>
-
-
-  <label for="department">Department</label>
-  <input type="radio" name=":department" value="sales" checked/> Sales
-  <input type="radio" name=":department" value="marketing" /> Marketing
-  <input type="radio" name=":department" value="technical" /> Technical
-  <br>
-
-<%= radio_button_tag(:department, :sales) %>
-<%= label_tag(:department, :sales) %>
-
-<%= radio_button_tag(:department, "marketing") %>
-<%= label_tag(:department, "marketing") %>
-
-<%= radio_button_tag(:department, "technical") %>
-<%= label_tag(:department, "techinical") %>
 
 
 

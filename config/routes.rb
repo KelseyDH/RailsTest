@@ -10,6 +10,9 @@ Week2RailsTest::Application.routes.draw do
 
   get "/error" => "homes#error"
 
+
+  # delete "/homes/:id" => "homes#destroy"
+
   root 'homes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

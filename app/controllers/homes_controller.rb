@@ -18,19 +18,48 @@ class HomesController < ApplicationController
     end
   end
 
-  def delete
-   if @home.destroy
-        redirect_to list_path, notice: "Question deleted successfully"
+  def destroy
+    @home = Home.find(params[:id])
+    @home.destroy
+
+    redirect_to list_path
+
+  end
+
+  # def delete
+  #  if @home.destroy
+  #       redirect_to list_path, notice: "Question deleted successfully"
+  #   else
+  #     redirect_to error_path
+  #   end
+  # end
+
+  def edit
+    @home = Home.find(params[:id])
+
+  end
+
+  # def update
+  #   @home = Home.find(params[:id])
+  #   redirect_to list_path
+  # end
+
+ def update
+    @home = Home.find(params[:id])
+    if @home.update_attributes(home_attributes)
+      redirect_to list_path
     else
       redirect_to error_path
     end
   end
+
 
   def new
     @home = Home.new
   end
 
   def list
+    @homes = Home.all
   end
 
   def codedump
@@ -45,7 +74,7 @@ class HomesController < ApplicationController
   private
 
   def home_attributes
-    home_attributes = params.require(:home).permit([:name, :department, :message])
+    home_attributes = params.require(:home).permit([:name, :email, :department, :message])
   end 
 
 end

@@ -1,0 +1,37 @@
+<%= form_for @home do |h| %>
+
+  <%= h.label :name, "name" %>
+  <%= h.text_field :name %>
+<br>
+  
+  <%= h.label :email, "email" %>
+  <%= h.text_field :email %>
+
+
+
+  <br>
+  
+  <%= h.label :message, "support message" %>
+  <%= h.text_area :message %>
+  <br>
+
+  
+
+  <br>
+
+<%= h.radio_button :department, "sales" %>
+<%= h.label :department, "sales" %>
+
+<%= h.radio_button :department, "marketing" %>
+<%= h.label :department, "marketing" %>
+
+<%= h.radio_button :department, "technical" %>
+<%= h.label :department, "technical" %>
+
+
+
+  <%= h.submit "Update", class: "btn btn-primary" %>
+
+
+<% end %>
+

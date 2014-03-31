@@ -1,7 +1,7 @@
 <h1> list of all support requests</h1>
 
 
-  <% Home.all.each do |home| %>
+  <% @homes.each do |home| %>
 
   <h2> <%= link_to home.name, home_path(home) %> </h2>
   <p><%= home.message %> </p>
@@ -22,7 +22,7 @@
 
 <!-- Lists Only Technical Registrations -->
 <h2>Technical</h2>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <tr>
       <th>Name</th>
       <th>email</th>
@@ -32,15 +32,19 @@
       <th> </th>
 
     </tr>
-    <% Home.all.each do |home| %>
+    <% @homes.each do |home| %>
       <% if home.department == "technical" %>
       <tr>
           <td><%= home.name %></td>
           <td><%= home.email %></td>
           <td><%= home.department %></td>
           <td><%= home.message %></td>
-          <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
-          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+          <td><%= link_to 'Edit', edit_home_path(home), class: "btn btn-default" %></td>
+
+          <td>
+
+            <%= link_to 'Delete', home_path(home), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }  %>
+          </td>
       </tr>
       <% else " " %>
       <% end %>
@@ -50,7 +54,7 @@
 <!-- Lists Only Marketing Registrations -->
 
 <h2>Marketing</h2>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <tr>
       <th>Name</th>
       <th>email</th>
@@ -62,15 +66,19 @@
     </tr>
 
 
-    <% Home.all.each do |home| %>
+    <% @homes.each do |home| %>
       <% if home.department == "marketing" %>
       <tr>
           <td><%= home.name %></td>
           <td><%= home.email %></td>
           <td><%= home.department %></td>
           <td><%= home.message %></td>
-          <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
-          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+          <td>
+            <a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a>
+          </td>
+          <td> 
+            <%= link_to 'Delete', home_path(home), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }  %>
+          </td>
       </tr>
       <% else " " %>
       <% end %>
@@ -80,7 +88,7 @@
 <!-- Lists Only Sales Registrations -->
 
 <h2>Sales</h2>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <tr>
       <th>Name</th>
       <th>email</th>
@@ -93,7 +101,7 @@
     </tr>
 
 
-    <% Home.all.each do |home| %>
+    <% @homes.each do |home| %>
       <% if home.department == "sales" %>
       <tr>
           <td><%= home.name %></td>
@@ -101,7 +109,7 @@
           <td><%= home.department %></td>
           <td><%= home.message %></td>
           <td><a href="/message/<%= home.id %>" class="btn btn-primary">Edit</a></td>
-          <td><a href="/delete/<%= home.id %>" class="btn btn-danger">Delete</a></td>
+          <td><%= link_to 'Delete', home_path(home), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %> </td>
       </tr>
       <% else " " %>
       <% end %>
